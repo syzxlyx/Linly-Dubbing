@@ -90,8 +90,8 @@ Our mission is to provide seamless, high-quality multi-language dubbing and tran
 
 ## Examples
 
-| Original Video                                               | Linly-Dubbing                                                |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Original Video                                                                                | Linly-Dubbing                                                                                 |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | <video src="https://github.com/user-attachments/assets/87ac52c1-0d67-4145-810a-d74147051026"> | <video src="https://github.com/user-attachments/assets/3d5c8346-3363-43f6-b8a4-80dc08f3eca4"> |
 
 ---
@@ -105,7 +105,7 @@ This guide applies to the following test environments:
 - Python 3.10, PyTorch 2.3.1, CUDA 12.1
 - Python 3.10, PyTorch 2.3.1, CUDA 11.8
 
-Follow the steps below to install and configure `Linly-Dubbing`. 
+Follow the steps below to install and configure `Linly-Dubbing`.
 
 > [!NOTE]
 >
@@ -124,6 +124,15 @@ cd Linly-Dubbing
 
 # Initialize and update submodules like CosyVoice
 git submodule update --init --recursive
+
+# Submodules (UVR5 / GPT-SoVITS / Linly-Talker)
+For optional external tools, we vendored their repos as git submodules for easier manual integration first:
+- UVR5: submodules/UVR5 (https://github.com/Anjok07/ultimatevocalremovergui)
+- GPT-SoVITS: submodules/GPT-SoVITS (https://github.com/RVC-Boss/GPT-SoVITS)
+- Linly-Talker: submodules/Linly-Talker (https://github.com/Kedreamix/Linly-Talker)
+
+See integration doc: docs/integration/Submodules_setup.md
+
 ```
 
 ### 2. Install Dependencies
@@ -261,7 +270,7 @@ After starting, you will see an interface like the one below. You can open [http
 
 ### Vocal Separation
 
-#### Demucs 
+#### Demucs
 
 **Demucs** is an advanced sound separation model developed by the Facebook research team, designed to separate different sound sources from mixed audio. Although its architecture is simple, Demucs is powerful enough to isolate instruments, voices, and background noise, making it easier for users to perform post-processing and editing. Its user-friendly design has made it a preferred tool for many audio processing applications, including music production and post-production in films. More information can be found on the [Demucs project page](https://github.com/facebookresearch/demucs).
 

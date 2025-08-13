@@ -5,6 +5,47 @@
 # torchvision
 # torchaudio
 
+
+# ------------------------------------------------------------
+# Python 3.11 compatibility notes (read me if you upgrade Python)
+#
+# General
+# - Always upgrade build tools first: `python -m pip install -U pip setuptools wheel`
+# - PyTorch is installed separately (see README). v2.3.1 supports Python 3.11.
+#
+# Numeric stack
+# - numpy==1.26.3 works on py311. If SciPy wheels conflict, allow a minor bump
+#   within 1.26.x (e.g., 1.26.4) or install SciPy from a version that has py311 wheels.
+# - If `scipy` fails to build on py311, try pinning to a release with prebuilt wheels
+#   for your OS/Python (or install via conda-forge), e.g.:
+#   - `pip install "scipy~=1.11"` (Linux/macOS) or use conda if wheels are unavailable.
+#
+# WhisperX stack (optional, only if you enable WhisperX ASR)
+# - Ensure ctranslate2 and faster-whisper have py311 wheels before installing whisperx:
+#   `pip install --upgrade "ctranslate2" "faster-whisper"`
+# - If whisperx installation fails from pip, prefer the GitHub install per its README.
+#
+# FunASR
+# - If `funasr` installation fails on py311, try upgrading to a newer release or
+#   follow FunASR's official install guide for py311-compatible versions.
+#
+# ModelScope (used by CosyVoice)
+# - If modelscope has dependency conflicts on py311, try upgrading it first:
+#   `pip install --upgrade modelscope`
+#   If still failing, consult modelscope release notes for a py311-supported version.
+#
+# WeTextProcessing / Pynini
+# - WeTextProcessing depends on `pynini`. Install pynini via conda-forge,
+#   which provides py311 builds:
+#   `conda install -y pynini==2.1.5 -c conda-forge`
+#
+# Others
+# - librosa==0.10.2 supports py311.
+# - lightning==2.2.4 works on py311 but depends on torch — install torch first per README.
+# - diffusers / accelerate generally support py311; keep them updated if you hit issues.
+# - If `pyarrow` wheels are not found for your platform, upgrade pip and retry.
+# ------------------------------------------------------------
+
 numpy==1.26.3
 transformers==4.39.3
 translators

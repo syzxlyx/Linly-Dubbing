@@ -90,9 +90,9 @@
 
 ## 示例
 
-| 原视频                                                       | Linly-Dubbing                                                |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-|  <video src="https://github.com/user-attachments/assets/87ac52c1-0d67-4145-810a-d74147051026"> | <video src="https://github.com/user-attachments/assets/3d5c8346-3363-43f6-b8a4-80dc08f3eca4"> |
+| 原视频                                                                                        | Linly-Dubbing                                                                                 |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| <video src="https://github.com/user-attachments/assets/87ac52c1-0d67-4145-810a-d74147051026"> | <video src="https://github.com/user-attachments/assets/3d5c8346-3363-43f6-b8a4-80dc08f3eca4"> |
 
 ---
 
@@ -124,6 +124,15 @@ cd Linly-Dubbing
 
 # 初始化并更新子模块，如CosyVoice等
 git submodule update --init --recursive
+
+### 外部子模块（UVR5 / GPT-SoVITS / Linly-Talker）
+为便于手动联动和后续接入，我们已将常用外部工具以 git submodule 方式纳入：
+- UVR5: submodules/UVR5（https://github.com/Anjok07/ultimatevocalremovergui）
+- GPT-SoVITS: submodules/GPT-SoVITS（https://github.com/RVC-Boss/GPT-SoVITS）
+- Linly-Talker: submodules/Linly-Talker（https://github.com/Kedreamix/Linly-Talker）
+
+使用说明详见：docs/integration/Submodules_setup.md
+
 ```
 
 ### 2. 安装依赖环境
@@ -260,7 +269,7 @@ python webui.py
 
 ### 人声分离
 
-#### Demucs 
+#### Demucs
 
 **Demucs** 是由 Facebook 研究团队开发的一个先进的声音分离模型，旨在从混合音频中分离出不同的声音源。Demucs 的架构简单，但功能强大，它能够将乐器、声音和背景音分离开来，使用户能够更方便地进行后期处理和编辑。其简单易用的设计使得它成为许多声音处理应用的首选工具，广泛用于音乐制作、影视后期等领域。更多信息可以参见 [Demucs 的项目页面](https://github.com/facebookresearch/demucs)。
 
